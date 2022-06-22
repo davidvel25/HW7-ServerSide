@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- All of this code is required for jQuery Mobile to set up the proper profiles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>jQuery Mobile Final Project - Library Collection</title>
+  <link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css"/>
+  <script src="http://code.jquery.com/jquery-1.8.2.min.js"> </script>
+  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+ </head>
+
+ <body>
+    <!-- Start of the Home Page (page1)-->
+    <div data-role="page" id="home">
+        <!-- The Header for the Home Page using Theme A-->
+        <div data-role="header" data-theme='a'>
+            <!-- H1 Heading that shows up at the top center of each page as part of the header, telling the user the name of my project in simple words -->
+            <h1>David's Library of Novels</h1>
+            <!-- A small "Home" button with a house icon in the top left corner of the Heading to allow the user to get back to the home page at any time -->
+            <a href="#home" data-icon="home">Home</a>
+            <!-- A new div tag for the navigation bar which houses all the pages the user could click on to get to a new page -->
+            <div data-role="navbar" data-theme='b'>
+                <!-- an unordered list of the pages that reside in the navbar which have in-page hyperlinks to get the user to any of the pages with the click of a button -->
+                <ul>
+                    <!-- Goes back to the home page when clicked -->
+                    <li><a href="#home">Home Page</a></li>
+                    <!-- Goes to the "add a book" page which allows the user to append a book to the Library Array -->
+                    <li><a href="#addBook">Add Book</a></li>
+                    <!-- Goes to the page that lists all the books in the library array -->
+                    <li><a href="#listAll">Display Library</a></li>
+                    <!-- Goes to the page that allows the user to remove a book from the Library Array -->
+                    <li><a href="#removeBook">Remove Book</a></li>
+                </ul>                   
+            </div>
+        </div>
+
+        <!-- The Home Page's Content section which allows for text + data to be shown and used -->
+        <div data-role="content" data-theme='b'>
+            <!-- A div tag which houses all the text on the content side of the page (useful for CSS styling later on) -->
+            <div class="textOnPage">
+                <!-- A Giant Heading on the Home Page with the words "Home Page" to demonstrate which page the user is on. -->
+                <h1>Home Page</h1>
+                <!-- Paragraph Text informing the user what this page is intended to be used for and simple directions -->
+                <p>This page will not house any complex data. It will only have text that says "home page" with some styling using CSS. This page will NOT use the data in the Library Array (no use of Library Array).</p>
+            </div>
+        </div>
+
+        <!-- The Home Page's footer is positioned at the bottom of the page -->
+        <div data-role="footer" data-theme='b'>
+            <!-- A Copyright Label positioned in the center of page's footer -->
+            <h1>Copyright 2022 by (Unknown User)</h1>
+         </div>
+    </div>
+
+    <!-- Start of the "addBook" page (page2) -->
+    <div data-role="page" id="addBook">
+        <!-- The Header for the Home Page using Theme A-->
+        <div data-role="header" data-theme='a'>
+            <!-- H1 Heading that shows up at the top center of each page as part of the header, telling the user the name of my project in simple words -->
+            <h1>David's Library of Novels</h1>
+            <!-- A small "Home" button with a house icon in the top left corner of the Heading to allow the user to get back to the home page at any time -->
+            <a href="#home" data-icon="home">Home</a>
+            <!-- A new div tag for the navigation bar which houses all the pages the user could click on to get to a new page -->
+            <div data-role="navbar" data-theme='b'>
+                <!-- an unordered list of the pages that reside in the navbar which have in-page hyperlinks to get the user to any of the pages with the click of a button -->                
+                <ul>
+                    <!-- Goes back to the home page when clicked -->
+                    <li><a href="#home">Home Page</a></li>
+                    <!-- Goes to the "add a book" page which allows the user to append a book to the Library Array -->
+                    <li><a href="#addBook">Add Book</a></li>
+                    <!-- Goes to the page that lists all the books in the library array -->
+                    <li><a href="#listAll">Display Library</a></li>
+                    <!-- Goes to the page that allows the user to remove a book from the Library Array -->
+                    <li><a href="#removeBook">Remove Book</a></li>
+                </ul>                   
+            </div>
+        </div>
+        <!-- End of the Home page (page1) -->
+
+        <!-- The addBook's Content section which allows for text + data to be shown and used -->
+        <div data-role="content" data-theme='b'>
+            <!-- A div tag which houses all the text on the content side of the page (useful for CSS styling later on) -->
+            <div class="textOnPage">
+                <!-- A Giant Heading on the addBook Page with the words "Append a New Book" to demonstrate which page the user is on. -->
+                <h2>Append a New Book</h2>
+                <!-- Paragraph Text informing the user what this page is intended to be used for and simple directions -->
+                <p>This page will allow the user to append a new book to the <strong>Library Array</strong>. There are various fields that must be filled out by the user in order to better categorize the book with its respective properties & identifiers (will use Library Array).</p>
+                
+                <!-- Input Field for the user to type the Book's Title -->
+                Enter Book Title
+                <input type="text" placeholder="Enter the title of the book" id="title">
+                <!-- Input Field for the user to type the Book's Publishing Year -->
+                Enter Book Publishing Year
+                <input type="text" placeholder="Enter the year the book was published" id="year">
+                <!-- Input Field for the user to type the Book Author's Last Name -->
+                Enter the Author's Last Name
+                <input type="text" placeholder="Enter the last name of the Author" id="lastName">
+                <!-- Input Field for the user to type the Book Author's First Name -->
+                Enter the Author's First name
+                <input type="text" placeholder="Enter the first name of the Author" id="firstName">
+                <!-- Input Field for the user to type the Book's ISBN Number with the help of an ISBN lookup  -->
+                Enter the Book's ISBN number using <a href="https://isbnsearch.org/" target="_blank">ISBN search</a>
+                <input type="text" placeholder="Enter the ISBN Number of your Book" id="ISBN">
+
+                    <!-- A dropdown for the user to select the Book's Genre -->
+                    <div class="selectDropdown">
+                        <!-- Prompts the User to Lookup the Genre of the Book using Google Books as a resource -->
+                        <!-- <label for="select-genre">Select the Book's Genre using <a href="https://books.google.com/" target="_blank">Google Books</a></label> -->
+                        Select the Book's Genre using <a href="https://books.google.com/" target="_blank">ISBN search</a>
+                        <select id="select-genre" data-native-menu="false">
+                            <!-- A non-clickable value in the dropdown field used as a temporary placeholder-->
+                            <option value="pick" disabled selected value> -- select a genre -- </option>
+                            <option value="adventure">Adventure</option>
+                            <option value="crimeThriller">Crime/Thriller</option>
+                            <option value="childrens">Childrens</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="fiction">Fiction</option>
+                            <option value="history">History</option>
+                            <option value="historicalFiction">Historical Fiction</option>
+                            <option value="humour">Humour</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="nonfiction">Non-Fiction</option>
+                            <option value="productivity">Productivity/Self-Improvement</option>
+                            <option value="realisticFiction">Realistic Fiction</option>
+                            <option value="romance">Romance</option>
+                            <option value="scienceFiction">Science Fiction</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    Enter the Reviewer's (your) full name
+                    <input type="text" placeholder="Enter your full name" id="reviewer">
+ 
+                    <!-- Enter the date you finished reading the book
+                    <input type="text" placeholder="Enter a date using yyyy/mm/dd format" id="date"> -->
+
+                    <form action="/action_page.php">
+                        <label for="date">Enter the date you finished reading the book</label>
+                        <input type="date" id="date" name="date" placeholder="yyyy/mm/dd">
+                    </form>                                          
+
+                    <div class="selectDropdown2">
+                        <!-- Prompts the User to Lookup the Genre of the Book using Google Books as a resource -->
+                        <!-- <label for="select-genre">Select the Book's Genre using <a href="https://books.google.com/" target="_blank">Google Books</a></label> -->
+                        Select a Rating for this Book                        
+                        <select id="rating">
+                            <!-- A non-clickable value in the dropdown field used as a temporary placeholder-->
+                            <option disabled selected value> -- select a rating -- </option>
+                            <option value="1">1 (worst)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (best)</option>
+                        </select>
+                    </div>
+
+
+            </div>
+            <!-- A clickable button located below the select dropdown which allows the user to append the book to the Library Array -->
+            <input type="button" value="Click to add Book to the library catalog" id="addtoList" data-inline="true">
+            <!-- A clickable button located below the select dropdown which allows the user to clear all the data of the Book Objects from the Library Array -->
+            <input type="button" value="Clear Library Data" id="clearLibrary" data-inline="true">
+        </div>
+
+        <!-- The addBook's footer is positioned at the bottom of the page -->
+        <div data-role="footer" data-theme='b'>
+            <!-- A Copyright Label positioned in the center of page's footer -->
+            <h1>Copyright 2022 by (Unknown User)</h1>
+        </div>
+    </div>
+    <!-- End of addBook page (page2) -->
+
+    <!-- Start of the listAll page (page3)-->    
+    <div data-role="page" id="listAll">
+        <!-- The Header for the Home Page using Theme A-->
+        <div data-role="header" data-theme='a'>
+            <!-- H1 Heading that shows up at the top center of each page as part of the header, telling the user the name of my project in simple words -->
+            <h1>David's Library of Novels</h1>
+            <!-- A small "Home" button with a house icon in the top left corner of the Heading to allow the user to get back to the home page at any time -->
+            <a href="#home" data-icon="home">Home</a>
+            <!-- A new div tag for the navigation bar which houses all the pages the user could click on to get to a new page -->
+            <div data-role="navbar" data-theme='b'>
+                <!-- an unordered list of the pages that reside in the navbar which have in-page hyperlinks to get the user to any of the pages with the click of a button -->
+                <ul>
+                    <!-- Goes back to the home page when clicked -->
+                    <li><a href="#home">Home Page</a></li>
+                    <!-- Goes to the "add a book" page which allows the user to append a book to the Library Array -->
+                    <li><a href="#addBook">Add Book</a></li>
+                    <!-- Goes to the page that lists all the books in the library array -->
+                    <li><a href="#listAll">Display Library</a></li>
+                    <!-- Goes to the page that allows the user to remove a book from the Library Array -->
+                    <li><a href="#removeBook">Remove Book</a></li>
+                </ul>                   
+            </div>
+        </div>
+
+        <!-- The listAll's Content section which allows for text + data to be shown and used -->        
+        <div data-role="content" data-theme='b'>
+            <!-- A div tag which houses all the text on the content side of the page (useful for CSS styling later on) -->
+            <div class="textOnPage">
+                <!-- A Giant Heading on the listAll Page with the words "Pick a Book, any Book" (Display Library)" to demonstrate which page the user is on. -->
+                <h1>"Pick a Book, any Book" (Display Library)</h1>
+                <!-- Paragraph Text informing the user what this page is intended to be used for and simple directions -->
+                <p>Allows the user to view the entire Library of Books, and also be sorted by Genre or Title. This site will use "ul" and "li" tags in order to display all the books in the <strong>Library Array</strong> most effectively from the top to the bottom of the page (will use the Library array).<br> <br> Each item is clickable and links to a details page, which is my 4th and final page in the project requirements:</p>
+                <!-- Creates an empty list which will eventually store all the Book objects from the Library Array -->
+                <div id="divBookList">
+                    <ul id="ulBookList">
+
+                    </ul>    
+                </div>
+            </div>
+            <!-- A clickable button located below the list of libraryArray books which allows the user to sort the array by Genre -->
+            <input type="button" value="Sort by Genre" id="sortGenre" data-inline="true" />
+            <!-- A clickable button located below the list of libraryArray books which allows the user to sort the array by Genre -->
+            <input type="button" value="Sort by Title" id="sortTitle" data-inline="true" />
+            <!-- A clickable button located below the list of libraryArray books which allows the user to sort the array by Rating -->
+            <input type="button" value="Sort by Rating" id="sortRating" data-inline="true" />            
+        </div>
+
+        <!-- The listAll's footer is positioned at the bottom of the page -->
+        <div data-role="footer" data-theme='b'>
+            <!-- A Copyright Label positioned in the center of page's footer -->
+            <h1>Copyright 2022 by (Unknown User)</h1>
+        </div>
+    </div>
+    <!-- End of listAll page (page 3)   -->
+
+    <!-- Start of the removeBook page (page4)-->
+        <div data-role="page" id="removeBook">
+
+        <!-- The Header for the removeBook Page using Theme A-->
+            <div data-role="header" data-theme='a'>
+                <!-- H1 Heading that shows up at the top center of each page as part of the header, telling the user the name of my project in simple words -->
+                <h1>David's Library of Novels</h1>
+                <!-- A small "Home" button with a house icon in the top left corner of the Heading to allow the user to get back to the home page at any time -->
+                <a href="#home" data-icon="home">Home</a>
+                <!-- A new div tag for the navigation bar which houses all the pages the user could click on to get to a new page -->
+                <div data-role="navbar" data-theme='b'>
+                <!-- an unordered list of the pages that reside in the navbar which have in-page hyperlinks to get the user to any of the pages with the click of a button -->
+                <ul>
+                    <!-- Goes back to the home page when clicked -->
+                    <li><a href="#home">Home Page</a></li>
+                    <!-- Goes to the "add a book" page which allows the user to append a book to the Library Array -->
+                    <li><a href="#addBook">Add Book</a></li>
+                    <!-- Goes to the page that lists all the books in the library array -->
+                    <li><a href="#listAll">Display Library</a></li>
+                    <!-- Goes to the page that allows the user to remove a book from the Library Array -->
+                    <li><a href="#removeBook">Remove Book</a></li>
+                    </ul>                   
+                </div>
+            </div>
+    
+        <!-- The removeBook's Content section which allows for text + data to be shown and used -->
+            <div data-role="content" data-theme='b'>
+                <!-- A div tag which houses all the text on the content side of the page (useful for CSS styling later on) -->
+                <div class="textOnPage">
+                    <!-- A Giant Heading on the removeBook with the words "Remove a Book" to demonstrate which page the user is on. -->
+                    <h1>Remove a Book</h1>
+                    <!-- Paragraph Text informing the user what this page is intended to be used for and simple directions -->
+                    <p>This page will allow the user to remove a book from the library Array. This page will continue to use the library Array, and this page will also have a button to clear the entire list of Books in the <strong>Library Array</strong> (uses library array data).</p>
+                    <!-- Creates an empty list which will eventually store all the Book objects from the Library Array -->
+                    <div id="divBookRemove">
+                        <ul id="ulBookRemove">
+
+                        </ul>    
+                    </div>
+                <!-- A clickable button located below the list of libraryArray books which allows the user to sort the array by Genre -->
+                <input type="button" value="removeBook" id="removeBook" data-inline="true" />
+                </div>
+            </div>
+    
+            <!-- The Home Page's footer is positioned at the bottom of the page -->
+            <div data-role="footer" data-theme='b'>
+                <!-- A Copyright Label positioned in the center of page's footer -->
+                <h1>Copyright 2022 by (Unknown User)</h1>
+             </div>
+        </div>
+
+        <!-- End of removeBook page (page 4)   -->
+
+        <!-- Start of the details page (page5)-->
+        <div data-role="page" id="details">
+
+            <!-- The Header for the removeBook Page using Theme A-->
+                <div data-role="header" data-theme='a'>
+                    <!-- H1 Heading that shows up at the top center of each page as part of the header, telling the user the name of my project in simple words -->
+                    <h1>David's Library of Novels</h1>
+                    <!-- A small "Home" button with a house icon in the top left corner of the Heading to allow the user to get back to the home page at any time -->
+                    <a href="#home" data-icon="home">Home</a>
+                    <!-- A new div tag for the navigation bar which houses all the pages the user could click on to get to a new page -->
+                    <div data-role="navbar" data-theme='b'>
+                    <!-- an unordered list of the pages that reside in the navbar which have in-page hyperlinks to get the user to any of the pages with the click of a button -->
+                    <ul>
+                        <!-- Goes back to the home page when clicked -->
+                        <li><a href="#home">Home Page</a></li>
+                        <!-- Goes to the "add a book" page which allows the user to append a book to the Library Array -->
+                        <li><a href="#addBook">Add Book</a></li>
+                        <!-- Goes to the page that lists all the books in the library array -->
+                        <li><a href="#listAll">Display Library</a></li>
+                        <!-- Goes to the page that allows the user to remove a book from the Library Array -->
+                        <li><a href="#removeBook">Remove Book</a></li>
+                        </ul>                   
+                    </div>
+                </div>
+        
+            <!-- The removeBook's Content section which allows for text + data to be shown and used -->
+                <div data-role="content" data-theme='b'>
+                    <!-- A div tag which houses all the text on the content side of the page (useful for CSS styling later on) -->
+                    <div class="textOnPage">
+                        <!-- A Giant Heading on the removeBook with the words "Remove a Book" to demonstrate which page the user is on. -->
+                        <h1>Details Page</h1>
+                        <!-- Paragraph Text informing the user what this page is intended to be used for and simple directions -->
+                        <p>This page is the details page for a specific book.</p>
+                        <!-- <ul id="listDetails">
+                            <li id="specificBookID">
+
+                            </li>
+                        </ul> -->
+                        <h1>Here are the details about the book:</h1>
+                        <h2>Title:</h2>
+                        <p id="specificBookTitle">
+                        <h2>The ID:</h2>
+                        <p id="specificBookID"></p>
+                        <h2>The rating you gave it:</h2>
+                        <p id="specificBookRating"></p>
+                    </div>
+                </div>
+        
+                <!-- The Home Page's footer is positioned at the bottom of the page -->
+                <div data-role="footer" data-theme='b'>
+                    <!-- A Copyright Label positioned in the center of page's footer -->
+                    <h1>Copyright 2022 by (Unknown User)</h1>
+                 </div>
+            </div>
+
+            <!-- End of details page (page 5)   -->
+
+    <!-- Attach the "main2.js" file to this index.html page -->
+    <script src="/javascripts/main2.js"></script>
+   
+ </body>
+ </html>

@@ -1,0 +1,19 @@
+/* body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+ */
+
+ /* CSS styling which applies for all text in the "body" tag */
+ body {
+  /* Add a 50px margin to the body tag */
+  margin: 50px;
+  /* Apply the "Helvetica, sans-serif" font to all text in the body tag */
+  font-family: Helvetica, sans-serif;
+  /* Apply a 150% font-size to all text in the body tag */
+  font-size: 150%;
+} 
